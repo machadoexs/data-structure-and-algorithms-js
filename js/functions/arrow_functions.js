@@ -5,7 +5,7 @@ var circleAreaES5 = function circleArea(r) {
 }
 console.log("Normal function: " + circleAreaES5(1))
 
-const circleArea = r => {
+export const circleArea = r => {
   const PI = 3.14
   const area = PI * r * r
   return area;
@@ -17,3 +17,5 @@ console.log("Simplifyied Arrow Function ===:> " + circleArea2(200))
 
 const empty = () => console.log("Arrow function withou params")
 empty()
+
+export const squareArea = s => s * s

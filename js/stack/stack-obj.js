@@ -1,6 +1,5 @@
 // @ts-check
-
-class StackObj {
+export default class StackObj {
   constructor() {
     this.count = 0
     this.items = {}

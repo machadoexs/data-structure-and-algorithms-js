@@ -1,4 +1,4 @@
-class Queue {
+export default class Queue {
   constructor() {
     this.count = 0
     this.lowestCount = 0
@@ -13,7 +13,7 @@ class Queue {
   isEmpty() {
     return this.size() === 0
   }
-  
+
   size() {
     return this.count - this.lowestCount
   }
@@ -27,7 +27,7 @@ class Queue {
     this.lowestCount++
     return result
   }
-  
+
   peek() {
     if(this.isEmpty()) {
       return undefined
@@ -48,7 +48,7 @@ class Queue {
     }
     let objString = `${this.items[this.lowestCount]}`
     for(let i = this.lowestCount + 1; i < this.count; i++) {
-      objString = `${objString},${this.items[i]}`    
+      objString = `${objString},${this.items[i]}`
     }
     return objString
   }

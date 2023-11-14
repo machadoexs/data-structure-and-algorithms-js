@@ -67,7 +67,7 @@ export default class Deque {
 
   // stack e queue
   size() {
-    return this.count;
+    return this.count - this.lowestCount;
   }
 
   isEmpty() {

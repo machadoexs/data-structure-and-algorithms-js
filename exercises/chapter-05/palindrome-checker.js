@@ -1,21 +1,29 @@
 import Deque from "../../js/deque/deque.js";
 
 function palindromeChecker(aString) {
-  if(aString === undefined || aString === null || (aString !== null && aString.length === 0)) {
-    false
+  if(
+    aString === undefined ||
+    aString === null ||
+    (aString !== null && aString.length === 0)
+  ) {
+    return false;
   }
   const deque = new Deque();
   const lowerString = aString.toLocaleLowerCase().split(' ').join('');
   let isEqual = true
-  let firstChar, lastChar
+  let firstChar
+  let lastChar
+
   for (let i = 0; i < lowerString.length; i++) {
     deque.addBack(lowerString.charAt(i))
+    console.log(lowerString[i])
   }
-  while(deque.size() > 1 && isEqual) {
+
+  while(deque.size() > 1) {
     firstChar = deque.removeFront()
     lastChar = deque.removeBack()
     if (firstChar !== lastChar) {
-      isEqual = false
+      return false
     }
   }
   return isEqual;

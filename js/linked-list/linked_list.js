@@ -42,6 +42,11 @@ export default class LinkedList {
     return undefined
   }
 
+  remove(element) {
+    let index = this.removeAt(element)
+    return this.removeAt(index)
+  }
+
   insert(element, index) {
     if(this.validIndex(index)) {
       const node = new Node(element)
@@ -61,6 +66,17 @@ export default class LinkedList {
     return false
   }
 
+  indexOf(element) {
+    let current = this.head
+    for (let i = 0; i < this.count && current != null; i++) {
+      if(this.equalsFn(element, current.element)) {
+        return i;
+      }
+      current = current.next
+    }
+    return -1;
+  }
+
   getElementAt(index) {
     if(this.validIndex(index)) {
       let node = this.head
@@ -70,6 +86,31 @@ export default class LinkedList {
       return node;
     }
     return undefined;
+  }
+
+  size() {
+    return this.count
+  }
+
+  isEmpty() {
+    return this.size === 0
+  }
+
+  getHead() {
+    return this.head
+  }
+
+  toString() {
+    if (this.isEmpty()) {
+      return ''
+    }
+    let objString = `${this.head.element}`
+    let current = this.head.next
+    for (let i = 0; i < this.size() && current != null; i++) {
+      objString = `${objString},${current.element}`
+      current = current.next
+    }
+    return objString;
   }
 
   validIndex(index) {
@@ -89,3 +130,7 @@ list.removeAt(1)
 console.log(list)
 list.push(22)
 console.log(list.getElementAt(0))
+console.log(list.toString())
+list.push(5)
+list.push(223)
+console.log(list.toString())

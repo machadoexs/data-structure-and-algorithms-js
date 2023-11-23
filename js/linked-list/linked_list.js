@@ -56,8 +56,7 @@ export default class LinkedList {
         this.head = node
       } else {
         const previous = this.getElementAt(index - 1)
-        const current = previous.next
-        node.next = current
+        node.next = previous.next
         previous.next = node
       }
       this.count++

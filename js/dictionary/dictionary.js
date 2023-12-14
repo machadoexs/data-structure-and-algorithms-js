@@ -1,5 +1,5 @@
-import { defaultToString } from '../util';
-import { ValuePair } from '../models/value_pair';
+import { defaultToString } from '../util.js';
+import { ValuePair } from '../models/value_pair.js';
 
 export default class Dictionary {
   constructor(toStrFn = defaultToString) {
@@ -86,3 +86,23 @@ export default class Dictionary {
     }
   }
 }
+
+const map = new Dictionary()
+map.set('Gandalf', 'gandalf@mail.com')
+map.set('Frodo', 'frodo@mail.com')
+map.set('Gimli', 'gimli@mail.com')
+
+console.log(map.hasKey('Gandalf'))
+console.log(map.size())
+console.log(map.keys())
+console.log(map.values())
+console.log(map.get('Frodo'))
+console.log(map.remove('Frodo'))
+
+console.log(map.keys())
+console.log(map.values())
+console.log(map.keyValues())
+
+map.forEach((k, v) => {
+  console.log('forEach: ', `key: ${k}, value: ${v}`)
+})

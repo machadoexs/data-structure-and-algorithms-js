@@ -12,6 +12,7 @@ export default class Dictionary {
   }
 
   set(key, value) {
+
     if(key != null && value != null) {
       const tableKey = this.toStrFn(key)
       this.table[tableKey] = new ValuePair(key, value)
